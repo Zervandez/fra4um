@@ -11,6 +11,6 @@ Installation
 + How to install the software
 
 Contributing
-Contributions are always welcome (later I will discuss with you about this if you want to make some changes here)
++ Contributions are always welcome (later I will discuss with you about this if you want to make some changes here)
 
 License
