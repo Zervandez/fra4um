@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "407770232593",
+    "project_id": "fra4um",
+    "storage_bucket": "fra4um.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407770232593:android:7c8f2f969f3ad1456a7eb0",
+        "android_client_info": {
+          "package_name": "com.k0k0.zervandez.forum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "407770232593-t6uuksliijdsoajetc4dvnbmk21f7qvp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3fDCeXjzmTlJXcgn-HQ72I-P_ZtOv1Wk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "407770232593-t6uuksliijdsoajetc4dvnbmk21f7qvp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
