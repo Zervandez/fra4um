@@ -18,7 +18,7 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
         loginBtn = findViewById(R.id.start_loginBtn);           // connect the variable to the corresponding xml view
-        registerBtn = findViewById(R.id.start_registerBtn);
+        registerBtn = findViewById(R.id.start_registerBtn);     // this is done so often I might stop commenting it
 
         // start new activity after click (login)
         loginBtn.setOnClickListener(new View.OnClickListener() {
