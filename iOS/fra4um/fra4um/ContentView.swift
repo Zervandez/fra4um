@@ -19,7 +19,7 @@ struct ContentView: View {
             }
             
             Button(action: {
-                print("Login btn clicked")
+                print("Login btn zzzzzz")
             }) {
                 Text("Login")
                     .frame(width: 300.0, height: 34.0)
