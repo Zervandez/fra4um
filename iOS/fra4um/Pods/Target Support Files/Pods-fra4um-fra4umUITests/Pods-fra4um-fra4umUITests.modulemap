@@ -1,6 +1,0 @@
-framework module Pods_fra4um_fra4umUITests {
-  umbrella header "Pods-fra4um-fra4umUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
