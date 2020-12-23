@@ -8,6 +8,14 @@
 
 import SwiftUI
 
+struct LoginView: View {
+    
+    var body: some View {
+        Text("Login")
+    }
+    
+    }
+
 struct ContentView: View {
     var body: some View {
         //Text("Hello, World!")
@@ -18,11 +26,8 @@ struct ContentView: View {
                 Text("Register")
             }
             
-            Button(action: {
-                print("Login btn zzzzzz")
-            }) {
+            NavigationLink(destination: LoginView()) {
                 Text("Login")
-                    .frame(width: 300.0, height: 34.0)
             }
             
         }
