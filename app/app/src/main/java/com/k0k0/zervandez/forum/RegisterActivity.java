@@ -3,6 +3,7 @@ package com.k0k0.zervandez.forum;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -53,7 +54,11 @@ public class RegisterActivity extends AppCompatActivity {
         firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) Toast.makeText(getApplicationContext(), "LOGED IN", Toast.LENGTH_LONG).show();
+                if (task.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(), "LOGED IN", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                    finish();       // we type finish so the user can't come back by hitting 'back'
+                }
                 else Toast.makeText(getApplicationContext(), "LOGIN FAILED", Toast.LENGTH_LONG).show();
             }
         });

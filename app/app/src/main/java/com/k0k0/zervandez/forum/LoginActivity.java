@@ -3,6 +3,7 @@ package com.k0k0.zervandez.forum;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -49,6 +50,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "LOGGED IN", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(LoginActivity.this, FeedActivity.class));
+                    finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "LOGIN FAILED", Toast.LENGTH_LONG).show();
                 }
