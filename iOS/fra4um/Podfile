@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'fra4um' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for fra4um
+
+  target 'fra4umTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'fra4umUITests' do
+    # Pods for testing
+  end
+  
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+
+end

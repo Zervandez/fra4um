@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,10 @@
 		0BDBF74A25927652008C7792 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BDBF74825927652008C7792 /* LaunchScreen.storyboard */; };
 		0BDBF75525927653008C7792 /* fra4umTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDBF75425927653008C7792 /* fra4umTests.swift */; };
 		0BDBF76025927653008C7792 /* fra4umUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDBF75F25927653008C7792 /* fra4umUITests.swift */; };
+		0BDBF7702593B438008C7792 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0BDBF76F2593B438008C7792 /* GoogleService-Info.plist */; };
+		25C7C9CE81149E74C3233C98 /* Pods_fra4um.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E66481265E2DCCEC5463C856 /* Pods_fra4um.framework */; };
+		93636109E524F4FAD4DC9298 /* Pods_fra4umTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B70AF549E8E4C3FB5C4DECBF /* Pods_fra4umTests.framework */; };
+		AA790779AF00757C59763606 /* Pods_fra4um_fra4umUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA621044B729D787BC35088 /* Pods_fra4um_fra4umUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		060005CACD574F547C7D7647 /* Pods-fra4um-fra4umUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fra4um-fra4umUITests.release.xcconfig"; path = "Target Support Files/Pods-fra4um-fra4umUITests/Pods-fra4um-fra4umUITests.release.xcconfig"; sourceTree = "<group>"; };
+		066794E0E16BEF45D7D2A5FD /* Pods-fra4um.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fra4um.debug.xcconfig"; path = "Target Support Files/Pods-fra4um/Pods-fra4um.debug.xcconfig"; sourceTree = "<group>"; };
 		0BDBF73A25927649008C7792 /* fra4um.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fra4um.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BDBF73D25927649008C7792 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BDBF73F25927649008C7792 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +55,14 @@
 		0BDBF75B25927653008C7792 /* fra4umUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fra4umUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BDBF75F25927653008C7792 /* fra4umUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fra4umUITests.swift; sourceTree = "<group>"; };
 		0BDBF76125927653008C7792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0BDBF76F2593B438008C7792 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3AA621044B729D787BC35088 /* Pods_fra4um_fra4umUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fra4um_fra4umUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DE4EFD29AFD4CC73B8949CF /* Pods-fra4umTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fra4umTests.debug.xcconfig"; path = "Target Support Files/Pods-fra4umTests/Pods-fra4umTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B44FC1D22420FD0E769EECD0 /* Pods-fra4um-fra4umUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fra4um-fra4umUITests.debug.xcconfig"; path = "Target Support Files/Pods-fra4um-fra4umUITests/Pods-fra4um-fra4umUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B70AF549E8E4C3FB5C4DECBF /* Pods_fra4umTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fra4umTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB3D5B4E937DE87B41E2B00F /* Pods-fra4umTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fra4umTests.release.xcconfig"; path = "Target Support Files/Pods-fra4umTests/Pods-fra4umTests.release.xcconfig"; sourceTree = "<group>"; };
+		E66481265E2DCCEC5463C856 /* Pods_fra4um.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fra4um.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9548934D8E84ACAF964A711 /* Pods-fra4um.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fra4um.release.xcconfig"; path = "Target Support Files/Pods-fra4um/Pods-fra4um.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25C7C9CE81149E74C3233C98 /* Pods_fra4um.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93636109E524F4FAD4DC9298 /* Pods_fra4umTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA790779AF00757C59763606 /* Pods_fra4um_fra4umUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +100,8 @@
 				0BDBF75325927653008C7792 /* fra4umTests */,
 				0BDBF75E25927653008C7792 /* fra4umUITests */,
 				0BDBF73B25927649008C7792 /* Products */,
+				914D8273EAE72B168A2F5BA7 /* Pods */,
+				BD30B66AA53BC4BF489C58EA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +122,7 @@
 				0BDBF73F25927649008C7792 /* SceneDelegate.swift */,
 				0BDBF74125927649008C7792 /* ContentView.swift */,
 				0BDBF74325927652008C7792 /* Assets.xcassets */,
+				0BDBF76F2593B438008C7792 /* GoogleService-Info.plist */,
 				0BDBF74825927652008C7792 /* LaunchScreen.storyboard */,
 				0BDBF74B25927652008C7792 /* Info.plist */,
 				0BDBF74525927652008C7792 /* Preview Content */,
@@ -136,6 +156,29 @@
 			path = fra4umUITests;
 			sourceTree = "<group>";
 		};
+		914D8273EAE72B168A2F5BA7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				066794E0E16BEF45D7D2A5FD /* Pods-fra4um.debug.xcconfig */,
+				E9548934D8E84ACAF964A711 /* Pods-fra4um.release.xcconfig */,
+				B44FC1D22420FD0E769EECD0 /* Pods-fra4um-fra4umUITests.debug.xcconfig */,
+				060005CACD574F547C7D7647 /* Pods-fra4um-fra4umUITests.release.xcconfig */,
+				8DE4EFD29AFD4CC73B8949CF /* Pods-fra4umTests.debug.xcconfig */,
+				BB3D5B4E937DE87B41E2B00F /* Pods-fra4umTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BD30B66AA53BC4BF489C58EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E66481265E2DCCEC5463C856 /* Pods_fra4um.framework */,
+				3AA621044B729D787BC35088 /* Pods_fra4um_fra4umUITests.framework */,
+				B70AF549E8E4C3FB5C4DECBF /* Pods_fra4umTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0BDBF76425927653008C7792 /* Build configuration list for PBXNativeTarget "fra4um" */;
 			buildPhases = (
+				FB581C6115F2B86CB777DCFF /* [CP] Check Pods Manifest.lock */,
 				0BDBF73625927649008C7792 /* Sources */,
 				0BDBF73725927649008C7792 /* Frameworks */,
 				0BDBF73825927649008C7792 /* Resources */,
+				A50B8B9EE07EE9ED4E5DB2A2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,6 +205,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0BDBF76725927653008C7792 /* Build configuration list for PBXNativeTarget "fra4umTests" */;
 			buildPhases = (
+				09112175ED8814BE64B83315 /* [CP] Check Pods Manifest.lock */,
 				0BDBF74C25927653008C7792 /* Sources */,
 				0BDBF74D25927653008C7792 /* Frameworks */,
 				0BDBF74E25927653008C7792 /* Resources */,
@@ -178,9 +224,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0BDBF76A25927653008C7792 /* Build configuration list for PBXNativeTarget "fra4umUITests" */;
 			buildPhases = (
+				23D0BDBF6AEBB5CBED4998D4 /* [CP] Check Pods Manifest.lock */,
 				0BDBF75725927653008C7792 /* Sources */,
 				0BDBF75825927653008C7792 /* Frameworks */,
 				0BDBF75925927653008C7792 /* Resources */,
+				93B1D808BC3CD1918ADB3A58 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -241,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BDBF74A25927652008C7792 /* LaunchScreen.storyboard in Resources */,
+				0BDBF7702593B438008C7792 /* GoogleService-Info.plist in Resources */,
 				0BDBF74725927652008C7792 /* Preview Assets.xcassets in Resources */,
 				0BDBF74425927652008C7792 /* Assets.xcassets in Resources */,
 			);
@@ -261,6 +310,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09112175ED8814BE64B83315 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fra4umTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		23D0BDBF6AEBB5CBED4998D4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fra4um-fra4umUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93B1D808BC3CD1918ADB3A58 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fra4um-fra4umUITests/Pods-fra4um-fra4umUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fra4um-fra4umUITests/Pods-fra4um-fra4umUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fra4um-fra4umUITests/Pods-fra4um-fra4umUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A50B8B9EE07EE9ED4E5DB2A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fra4um/Pods-fra4um-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fra4um/Pods-fra4um-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fra4um/Pods-fra4um-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB581C6115F2B86CB777DCFF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fra4um-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0BDBF73625927649008C7792 /* Sources */ = {
@@ -432,6 +584,7 @@
 		};
 		0BDBF76525927653008C7792 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 066794E0E16BEF45D7D2A5FD /* Pods-fra4um.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -451,6 +604,7 @@
 		};
 		0BDBF76625927653008C7792 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9548934D8E84ACAF964A711 /* Pods-fra4um.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -470,6 +624,7 @@
 		};
 		0BDBF76825927653008C7792 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DE4EFD29AFD4CC73B8949CF /* Pods-fra4umTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -491,6 +646,7 @@
 		};
 		0BDBF76925927653008C7792 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB3D5B4E937DE87B41E2B00F /* Pods-fra4umTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +668,7 @@
 		};
 		0BDBF76B25927653008C7792 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B44FC1D22420FD0E769EECD0 /* Pods-fra4um-fra4umUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -531,6 +688,7 @@
 		};
 		0BDBF76C25927653008C7792 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 060005CACD574F547C7D7647 /* Pods-fra4um-fra4umUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
