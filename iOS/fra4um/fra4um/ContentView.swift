@@ -9,30 +9,34 @@
 import SwiftUI
 
 struct LoginView: View {
-    
     var body: some View {
         Text("Login")
     }
+}
     
+struct RegisterView: View {
+    var body: some View {
+        Text("Register")
     }
-
+}
+    
 struct ContentView: View {
     var body: some View {
-        //Text("Hello, World!")
-        VStack {
-            Button(action: {
-                print("Regster btn clicked")
-            }) {
-                Text("Register")
+        NavigationView {
+            VStack{
+                NavigationLink(destination: LoginView()) {
+                    Text("Login")
+                }
+                
+                NavigationLink(destination: RegisterView()) {
+                    Text("Register")
+                }
             }
-            
-            NavigationLink(destination: LoginView()) {
-                Text("Login")
-            }
-            
+        .navigationBarTitle("Diaspora")
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
