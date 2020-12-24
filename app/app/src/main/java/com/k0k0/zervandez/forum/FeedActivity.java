@@ -1,5 +1,6 @@
 package com.k0k0.zervandez.forum;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,8 +14,11 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;       // apparently, we're old fashioned
 import com.google.android.material.snackbar.Snackbar;                               // we wear it with pride, baby
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -37,8 +41,8 @@ public class FeedActivity extends AppCompatActivity {
         feedListView = findViewById(R.id.feelListView);
         FloatingActionButton fab = findViewById(R.id.fab);
 
-        ArrayList<String> list = new ArrayList<>();
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, list);
+        final ArrayList<String> list = new ArrayList<>();
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, list);
 
 
 
@@ -63,8 +67,23 @@ public class FeedActivity extends AppCompatActivity {
 
         });
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference("");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Feed");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    list.add(dataSnapshot.getValue().toString());
+                }
+                arrayAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
     }
 }
