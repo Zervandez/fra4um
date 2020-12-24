@@ -44,7 +44,7 @@ public class FeedActivity extends AppCompatActivity {
         final ArrayList<String> list = new ArrayList<>();
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, list);
 
-
+        feedListView.setAdapter(arrayAdapter);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
