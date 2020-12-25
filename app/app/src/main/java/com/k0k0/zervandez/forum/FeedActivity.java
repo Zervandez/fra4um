@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;       // apparently, we're old fashioned
@@ -46,7 +47,7 @@ public class FeedActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
 
         final ArrayList<String> list = new ArrayList<>();
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, list);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.custom_row, list);
 
         feedListView.setAdapter(arrayAdapter);
 
@@ -122,7 +123,10 @@ class CustomListRowAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         View vi = view;
-        if (vi == null) inflater.inflate(R.layout.custom_row), null;
+        if (vi == null) inflater.inflate(R.layout.custom_row, null);
+        TextView postText = vi.findViewById(R.id.customRowTextView);
+        postText.setText(data[i]);
+        return vi;
 
     }
 }
