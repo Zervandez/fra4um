@@ -88,37 +88,41 @@ public class FeedActivity extends AppCompatActivity {
             }
         });
 
-    class CustomListRowAdapter extends BaseAdapter {
 
-        Context context;
-        String[] data;
-        private LayoutInflater inflater = null;
-
-        public CustomListRowAdapter(Context context, String[] data) {
-            this.context = context;
-            this.data = data;
-            inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        }
-
-        @Override
-        public int getCount() {
-            return 0;
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            return null;
-        }
     }
+    }
+
+class CustomListRowAdapter extends BaseAdapter {
+
+    Context context;
+    String[] data;
+    private static LayoutInflater inflater = null;
+
+    public CustomListRowAdapter(Context context, String[] data) {
+        this.context = context;
+        this.data = data;
+        inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+    }
+
+    @Override
+    public int getCount() {
+        return 0;
+    }
+
+    @Override
+    public Object getItem(int i) {
+        return null;
+    }
+
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        View vi = view;
+        if (vi == null) inflater.inflate(R.layout.custom_row), null;
+
     }
 }
