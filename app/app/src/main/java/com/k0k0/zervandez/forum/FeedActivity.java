@@ -47,9 +47,11 @@ public class FeedActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
 
         final ArrayList<String> list = new ArrayList<>();
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.custom_row, list);
+        //final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.custom_row, list);
+        final CustomListRowAdapter customListRowAdapter = new CustomListRowAdapter(this,R.layout.custom_row ,list.toString());
 
-        feedListView.setAdapter(arrayAdapter);
+
+        feedListView.setAdapter(customListRowAdapter);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +82,7 @@ public class FeedActivity extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                     list.add(dataSnapshot.getValue().toString());
                 }
-                arrayAdapter.notifyDataSetChanged();
+                customListRowAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -96,10 +98,10 @@ public class FeedActivity extends AppCompatActivity {
 class CustomListRowAdapter extends BaseAdapter {
 
     Context context;
-    String[] data;
+    String data;
     private static LayoutInflater inflater = null;
 
-    public CustomListRowAdapter(Context context, String[] data) {
+    public CustomListRowAdapter(Context context, String data) {
         this.context = context;
         this.data = data;
         inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
@@ -125,7 +127,7 @@ class CustomListRowAdapter extends BaseAdapter {
         View vi = view;
         if (vi == null) inflater.inflate(R.layout.custom_row, null);
         TextView postText = vi.findViewById(R.id.customRowTextView);
-        postText.setText(data[i]);
+        postText.setText(data);
         return vi;
 
     }
