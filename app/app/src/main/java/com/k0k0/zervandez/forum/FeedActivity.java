@@ -6,11 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,6 +24,47 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
+
+
+
+class CustomListRowAdapter<String> extends BaseAdapter {
+
+    Context context;
+    List data;
+    private static LayoutInflater inflater = null;
+
+    public CustomListRowAdapter(Context context, List<String> data) {
+        this.context = context;
+        this.data = data;
+        inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+    }
+
+    @Override
+    public int getCount() {
+        return 0;
+    }
+
+    @Override
+    public Object getItem(int i) {
+        return null;
+    }
+
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        View vi = view;
+        if (vi == null) inflater.inflate(R.layout.custom_row, null);
+        TextView postText = vi.findViewById(R.id.customRowTextView);
+        postText.setText(data.toString());
+        return vi;
+
+    }
+}
 
 
 public class FeedActivity extends AppCompatActivity {
@@ -48,7 +87,7 @@ public class FeedActivity extends AppCompatActivity {
 
         final ArrayList<String> list = new ArrayList<>();
         //final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.custom_row, list);
-        final CustomListRowAdapter customListRowAdapter = new CustomListRowAdapter(this,R.layout.custom_row ,list.toString());
+        final CustomListRowAdapter<String> customListRowAdapter = new CustomListRowAdapter<String>(this, list);
 
 
         feedListView.setAdapter(customListRowAdapter);
@@ -95,40 +134,3 @@ public class FeedActivity extends AppCompatActivity {
     }
     }
 
-class CustomListRowAdapter extends BaseAdapter {
-
-    Context context;
-    String data;
-    private static LayoutInflater inflater = null;
-
-    public CustomListRowAdapter(Context context, String data) {
-        this.context = context;
-        this.data = data;
-        inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-    }
-
-    @Override
-    public int getCount() {
-        return 0;
-    }
-
-    @Override
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        View vi = view;
-        if (vi == null) inflater.inflate(R.layout.custom_row, null);
-        TextView postText = vi.findViewById(R.id.customRowTextView);
-        postText.setText(data);
-        return vi;
-
-    }
-}
