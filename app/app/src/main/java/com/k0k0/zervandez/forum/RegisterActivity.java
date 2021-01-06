@@ -16,6 +16,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * This class is created so that the user will be able to
+ * create an account via their email address
+ * <p>
+ *
+ * @author Ariel Halilaj
+ * @since  10.12.2020
+ *
+ */
+
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText emailET, passET;

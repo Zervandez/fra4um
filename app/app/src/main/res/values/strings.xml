@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Forum</string>
+    <string name="app_name" translatable="false">Forum</string>
+    <string name="email" translatable="false">E-mail</string>
+    <string name="logo" translatable="false">FRA4RUM</string>
+    <string name="password" translatable="false">Password</string>
 </resources>

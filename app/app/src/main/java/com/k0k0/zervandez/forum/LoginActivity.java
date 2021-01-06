@@ -15,6 +15,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * This activity allows users to login to the system
+ */
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText emailET, passwordET;
