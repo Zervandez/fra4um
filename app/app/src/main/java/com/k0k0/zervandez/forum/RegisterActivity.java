@@ -17,9 +17,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 /**
- * This class is created so that the user will be able to
- * create an account via their email address
- * <p>
+ * Allows the user to create an account via their email address.
+ * <p> The Main components that will be showed to the user are:
+ * <ul>
+ * <li> A block for the user's email address
+ * <li> A block for the password
+ * <li> A button to finish the registration
+ * </ul>
  *
  * @author Ariel Halilaj
  * @since  10.12.2020
@@ -40,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         emailET = findViewById(R.id.reg_emailEditText);
         passET = findViewById(R.id.reg_editTextPassword);
-        registerBtn = findViewById(R.id.reg_registerBtn);
+        registerBtn = findViewById(R.id.register_button);
 
         firebaseAuth = FirebaseAuth.getInstance();      // we initialise the instance
 

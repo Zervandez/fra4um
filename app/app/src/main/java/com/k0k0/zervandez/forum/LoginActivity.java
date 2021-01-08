@@ -16,7 +16,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 /**
- * This activity allows users to login to the system
+ * Allows the user to log in to the system using their email address
  */
 
 public class LoginActivity extends AppCompatActivity {
@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
         emailET = findViewById(R.id.login_emailEditText);
         passwordET = findViewById(R.id.login_editTextPassword);
-        loginBtn = findViewById(R.id.login_loginBtn);
+        loginBtn = findViewById(R.id.login_button);
 
         firebaseAuth = FirebaseAuth.getInstance();
 

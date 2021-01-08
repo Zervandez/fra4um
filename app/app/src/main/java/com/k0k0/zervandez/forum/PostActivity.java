@@ -17,6 +17,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+/**
+ * Allows the user to write a post and then post it on the system
+ */
+
 public class PostActivity extends AppCompatActivity {
 
     private EditText postEtx;
