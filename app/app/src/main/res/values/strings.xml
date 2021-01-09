@@ -8,4 +8,6 @@
     <string name="login_email">E-mail</string>
     <string name="login_logo">FRA4RUM</string>
     <string name="login_button">Login</string>
+    <string name="login_logof">logo</string>
+    <string name="register_logof">logo</string>
 </resources>
