@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
      *  <li> A block for the password
      *  <li> A button to finish the registration
      * </ul>
-     * @param savedInstanceState
+     * @param savedInstanceState Most up-to-date data of the RegisterActivity
      */
 
     @Override
@@ -77,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     /**
-     * Perform the authentication.
+     * Perform the registration process.
      * <p>
      *     If the user has provided correct information, the registration process will be successful and he/she will be directed to the Login-interface
      *     so that he/she can login to the system
@@ -94,11 +94,11 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), "LOGED IN", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "SUCCESSFULLY CREATE AN ACCOUNT", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     finish();       // we type finish so the user can't come back by hitting 'back'
                 }
-                else Toast.makeText(getApplicationContext(), "LOGIN FAILED", Toast.LENGTH_LONG).show();
+                else Toast.makeText(getApplicationContext(), "PLEASE TRY AGAIN!", Toast.LENGTH_LONG).show();
             }
         });
     }
