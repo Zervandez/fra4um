@@ -31,15 +31,15 @@ public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;     //  we declare an instance of Firebase Auth
 
-    /**
-     * Interact with the Register-interface.
-     * <p> The Main components of the Register-interface are:
-     * <ul>
-     *  <li> A block for the user's email address
-     *  <li> A block for the password
-     *  <li> A button to finish the registration
-     * </ul>
-     * @param savedInstanceState Most up-to-date data of the RegisterActivity
+    /*
+        Interact with the Register-interface.
+        The Main components of the Register-interface are:
+
+        A block for the user's email address
+        A block for the password
+        A button to finish the registration
+
+        @param savedInstanceState Most up-to-date data of the RegisterActivity
      */
 
     @Override
