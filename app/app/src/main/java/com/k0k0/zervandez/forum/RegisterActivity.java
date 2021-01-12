@@ -55,9 +55,10 @@ public class RegisterActivity extends AppCompatActivity {
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             /**
-             * Get the required information from the user (email, password).
-             * <p> If the user hasn't filled the email block, he/she will get a notification
-             * <p> If the user hasn't filled the password block, he/she will get a notification
+             * Verify the information given by the user (email, password) after they click on the Register-Button.
+             * <p> If the users haven't filled the required information, they will get a notification
+             * <p> If the users haven't filled the email block, they will get a notification
+             * <p> If the user haven't filled the password block, they will get a notification
              * <p> If the two required information have been given, they will be passed to the registerUser(email, pass)-Method to perform the authentication
              * @param view the register view
              */
@@ -65,10 +66,12 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String emailStr = emailET.getText().toString().trim();
                 String passStr = passET.getText().toString();
-                if (TextUtils.isEmpty(emailStr)) {
-                    Toast.makeText(getApplicationContext(), "PLEASE ENTER EMAIL", Toast.LENGTH_LONG).show();
+                if ( TextUtils.isEmpty(emailStr) && TextUtils.isEmpty(passStr) ) {
+                    Toast.makeText(getApplicationContext(), "EMAIL AND PASSWORD ARE EMPTY", Toast.LENGTH_LONG).show();
                 } else if (TextUtils.isEmpty(emailStr)) {
-                    Toast.makeText(getApplicationContext(), "PASSWORD PLEASE", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "PLEASE ENTER YOUR EMAIL", Toast.LENGTH_LONG).show();
+                } else if ( TextUtils.isEmpty(passStr) ) {
+                    Toast.makeText(getApplicationContext(), "PLEASE ENTER YOUR PASSWORD", Toast.LENGTH_LONG).show();
                 } else {
                     registerUser(emailStr, passStr);
                 }

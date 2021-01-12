@@ -22,10 +22,13 @@
 
     <Button
         android:id="@+id/postBtn"
-        android:layout_width="match_parent"
+        android:layout_width="303dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/postTextMultiLine"
-        android:layout_margin="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="524dp"
+        android:layout_marginBottom="16dp"
         android:text="POST" />
 </RelativeLayout>
