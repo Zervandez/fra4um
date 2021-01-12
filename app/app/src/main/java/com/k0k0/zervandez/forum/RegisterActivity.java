@@ -59,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
              * <p> If the user hasn't filled the email block, he/she will get a notification
              * <p> If the user hasn't filled the password block, he/she will get a notification
              * <p> If the two required information have been given, they will be passed to the registerUser(email, pass)-Method to perform the authentication
-             * @param view
+             * @param view the register view
              */
             @Override
             public void onClick(View view) {
@@ -95,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "SUCCESSFULLY CREATE AN ACCOUNT", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                    startActivity(new Intent(RegisterActivity.this, StartActivity.class));
                     finish();       // we type finish so the user can't come back by hitting 'back'
                 }
                 else Toast.makeText(getApplicationContext(), "PLEASE TRY AGAIN!", Toast.LENGTH_LONG).show();
