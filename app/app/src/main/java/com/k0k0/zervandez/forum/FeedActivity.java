@@ -124,7 +124,7 @@ public class FeedActivity extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                     list.add(dataSnapshot.getValue().toString());
                 }
-                customListRowAdapter.notifyDataSetChanged();
+                arrayAdapter.notifyDataSetChanged();
             }
 
             @Override
