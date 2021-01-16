@@ -16,7 +16,7 @@
         android:layout_gravity="end|bottom"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:contentDescription="bruh" />
+        android:contentDescription="@string/feed_button" />
 
     <ListView
         android:id="@+id/feelListView"

@@ -31,15 +31,15 @@ public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;     //  we declare an instance of Firebase Auth
 
-    /*
-        Interact with the Register-interface.
-        The Main components of the Register-interface are:
-
-        A block for the user's email address
-        A block for the password
-        A button to finish the registration
-
-        @param savedInstanceState Most up-to-date data of the RegisterActivity
+    /**
+     * Interact with the Register-interface.
+     * <p> The Main components of the Register-interface are:
+     * <ul>
+     *  <li> A block for the user's email address
+     *  <li> A block for the password
+     *  <li> A button to finish the registration
+     * </ul>
+     * @param savedInstanceState Most up-to-date data of the RegisterActivity
      */
 
     @Override
@@ -49,26 +49,28 @@ public class RegisterActivity extends AppCompatActivity {
 
         emailET = findViewById(R.id.reg_emailEditText);
         passET = findViewById(R.id.reg_editTextPassword);
-        registerBtn = findViewById(R.id.reg_registerBtn);
+        registerBtn = findViewById(R.id.register_button);
 
         firebaseAuth = FirebaseAuth.getInstance();      // we initialise the instance
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             /**
              * Get the required information from the user (email, password).
-             * <p> If the user hasn't filled the email block, he/she will get a notification
-             * <p> If the user hasn't filled the password block, he/she will get a notification
+             * <p> If the users haven't filled the email block, they will get a notification
+             * <p> If the user haven't filled the password block, they will get a notification
              * <p> If the two required information have been given, they will be passed to the registerUser(email, pass)-Method to perform the authentication
-             * @param view
+             * @param view the register view
              */
             @Override
             public void onClick(View view) {
                 String emailStr = emailET.getText().toString().trim();
                 String passStr = passET.getText().toString();
-                if (TextUtils.isEmpty(emailStr)) {
-                    Toast.makeText(getApplicationContext(), "PLEASE ENTER EMAIL", Toast.LENGTH_LONG).show();
+                if ( TextUtils.isEmpty(emailStr) && TextUtils.isEmpty(passStr) ) {
+                    Toast.makeText(getApplicationContext(), "EMAIL AND PASSWORD ARE EMPTY", Toast.LENGTH_LONG).show();
                 } else if (TextUtils.isEmpty(emailStr)) {
-                    Toast.makeText(getApplicationContext(), "PASSWORD PLEASE", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "PLEASE ENTER YOUR EMAIL", Toast.LENGTH_LONG).show();
+                } else if ( TextUtils.isEmpty(passStr) ) {
+                    Toast.makeText(getApplicationContext(), "PLEASE ENTER YOUR PASSWORD", Toast.LENGTH_LONG).show();
                 } else {
                     registerUser(emailStr, passStr);
                 }
@@ -95,7 +97,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "SUCCESSFULLY CREATE AN ACCOUNT", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                    startActivity(new Intent(RegisterActivity.this, StartActivity.class));
                     finish();       // we type finish so the user can't come back by hitting 'back'
                 }
                 else Toast.makeText(getApplicationContext(), "PLEASE TRY AGAIN!", Toast.LENGTH_LONG).show();
