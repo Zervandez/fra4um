@@ -49,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         emailET = findViewById(R.id.reg_emailEditText);
         passET = findViewById(R.id.reg_editTextPassword);
-        registerBtn = findViewById(R.id.register_button);
+        registerBtn = findViewById(R.id.reg_registerBtn);
 
         firebaseAuth = FirebaseAuth.getInstance();      // we initialise the instance
 
