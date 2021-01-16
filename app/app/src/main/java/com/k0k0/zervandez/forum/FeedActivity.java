@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
+/*
 class CustomListRowAdapter<String> extends BaseAdapter {
 
     Context context;
@@ -65,6 +65,8 @@ class CustomListRowAdapter<String> extends BaseAdapter {
 
     }
 }
+
+*/
 
 
 public class FeedActivity extends AppCompatActivity {
