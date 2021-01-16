@@ -72,7 +72,6 @@ class CustomListRowAdapter<String> extends BaseAdapter {
 public class FeedActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
-    private FirebaseDatabase firebaseDatabase;
 
     private ListView feedListView;
 
