@@ -3,12 +3,15 @@ package com.k0k0.zervandez.forum;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;       // apparently, we're old fashioned
@@ -21,6 +24,47 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
+
+
+
+class CustomListRowAdapter<String> extends BaseAdapter {
+
+    Context context;
+    List data;
+    private static LayoutInflater inflater = null;
+
+    public CustomListRowAdapter(Context context, List<String> data) {
+        this.context = context;
+        this.data = data;
+        inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+    }
+
+    @Override
+    public int getCount() {
+        return 0;
+    }
+
+    @Override
+    public Object getItem(int i) {
+        return null;
+    }
+
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        View vi = view;
+        if (vi == null) inflater.inflate(R.layout.custom_row, null);
+        TextView postText = vi.findViewById(R.id.customRowTextView);
+        postText.setText(data.toString());
+        return vi;
+
+    }
+}
 
 
 public class FeedActivity extends AppCompatActivity {
@@ -42,9 +86,11 @@ public class FeedActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
 
         final ArrayList<String> list = new ArrayList<>();
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, list);
+        //final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.custom_row, list);
+        final CustomListRowAdapter<String> customListRowAdapter = new CustomListRowAdapter<String>(this, list);
 
-        feedListView.setAdapter(arrayAdapter);
+
+        feedListView.setAdapter(customListRowAdapter);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +121,7 @@ public class FeedActivity extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                     list.add(dataSnapshot.getValue().toString());
                 }
-                arrayAdapter.notifyDataSetChanged();
+                customListRowAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -86,4 +132,5 @@ public class FeedActivity extends AppCompatActivity {
 
 
     }
-}
+    }
+

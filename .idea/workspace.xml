@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c767f361-997f-4a11-868c-eb9590971b2b" name="Default Changelist" comment="" />
+    <list default="true" id="c767f361-997f-4a11-868c-eb9590971b2b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app/src/main/res/layout/activity_register.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,9 +41,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="410" y="165" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608469250511" />
-    <state x="687" y="215" key="FileChooserDialogImpl" timestamp="1608469282923">
+    <state x="687" y="215" key="FileChooserDialogImpl" timestamp="1608731508518">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="687" y="215" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608469282923" />
+    <state x="687" y="215" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608731508518" />
   </component>
 </project>

@@ -16,12 +16,31 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * Allows the user to create an account via their email address.
+ *
+ * @author Ariel Halilaj
+ * @since  10.12.2020
+ *
+ */
+
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText emailET, passET;
     private Button registerBtn;
 
     private FirebaseAuth firebaseAuth;     //  we declare an instance of Firebase Auth
+
+    /*
+        Interact with the Register-interface.
+        The Main components of the Register-interface are:
+
+        A block for the user's email address
+        A block for the password
+        A button to finish the registration
+
+        @param savedInstanceState Most up-to-date data of the RegisterActivity
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +49,18 @@ public class RegisterActivity extends AppCompatActivity {
 
         emailET = findViewById(R.id.reg_emailEditText);
         passET = findViewById(R.id.reg_editTextPassword);
-        registerBtn = findViewById(R.id.reg_registerBtn);
+        registerBtn = findViewById(R.id.register_button);
 
         firebaseAuth = FirebaseAuth.getInstance();      // we initialise the instance
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Get the required information from the user (email, password).
+             * <p> If the user hasn't filled the email block, he/she will get a notification
+             * <p> If the user hasn't filled the password block, he/she will get a notification
+             * <p> If the two required information have been given, they will be passed to the registerUser(email, pass)-Method to perform the authentication
+             * @param view
+             */
             @Override
             public void onClick(View view) {
                 String emailStr = emailET.getText().toString().trim();
@@ -50,16 +76,29 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Perform the registration process.
+     * <p>
+     *     If the user has provided correct information, the registration process will be successful and he/she will be directed to the Login-interface
+     *     so that he/she can login to the system
+     * <p>
+     *     If the user has provided false information, the registration process will be failed and he/she will stay in the Register-Interface until he/she
+     *     provides correct information
+     *
+     * @param email The email address of the user
+     * @param pass  A Password
+     */
+
     private void registerUser(String email, String pass) {
         firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), "LOGED IN", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "SUCCESSFULLY CREATE AN ACCOUNT", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     finish();       // we type finish so the user can't come back by hitting 'back'
                 }
-                else Toast.makeText(getApplicationContext(), "LOGIN FAILED", Toast.LENGTH_LONG).show();
+                else Toast.makeText(getApplicationContext(), "PLEASE TRY AGAIN!", Toast.LENGTH_LONG).show();
             }
         });
     }
