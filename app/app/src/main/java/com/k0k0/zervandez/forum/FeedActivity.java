@@ -88,7 +88,7 @@ public class FeedActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
 
         final ArrayList<String> list = new ArrayList<>();
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.custom_row, list);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, list);
         //final CustomListRowAdapter<String> customListRowAdapter = new CustomListRowAdapter<String>(this, list);
 
 
