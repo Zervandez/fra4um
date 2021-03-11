@@ -3,15 +3,9 @@ package com.k0k0.zervandez.forum;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.icu.util.LocaleData;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,15 +15,9 @@ import com.firebase.ui.database.FirebaseListOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;       // apparently, we're old fashioned
 import com.google.android.material.snackbar.Snackbar;                               // we wear it with pride, baby
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class FeedActivity extends AppCompatActivity {
 
@@ -53,6 +41,7 @@ public class FeedActivity extends AppCompatActivity {
 
         FirebaseListOptions<Post> options = new FirebaseListOptions.Builder<Post>()
                 .setLayout(R.layout.custom_row)
+                .setLifecycleOwner(FeedActivity.this)
                 .setQuery(query, Post.class)
                 .build();
 
@@ -69,7 +58,6 @@ public class FeedActivity extends AppCompatActivity {
 
         feedListView.setAdapter(adapter);
 
-        onStart();
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,5 +101,19 @@ public class FeedActivity extends AppCompatActivity {
 */
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+}
+
+
 
