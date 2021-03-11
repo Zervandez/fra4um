@@ -28,11 +28,14 @@ public class PostActivity extends AppCompatActivity {
 
     private EditText postEtx;
     private Button postBtn;
+    FirebaseDatabase firebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
 
         postEtx = findViewById(R.id.postTextMultiLine);
         postBtn = findViewById(R.id.postBtn);
@@ -44,7 +47,7 @@ public class PostActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(postEtx.toString())){
                     Toast.makeText(getApplicationContext(), "EMPTY NO GOOD", Toast.LENGTH_LONG).show();
                 } else {
-                    FirebaseDatabase.getInstance().getReference().child("Feed").push().setValue(txt);
+                    firebaseDatabase.getReference().child("Feed").push().setValue(txt);
                     startActivity(new Intent(PostActivity.this, FeedActivity.class));
                     finish();
                 }

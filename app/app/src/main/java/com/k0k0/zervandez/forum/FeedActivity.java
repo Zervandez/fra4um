@@ -27,48 +27,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-// I see nothing //
-
-/*
-class CustomListRowAdapter<String> extends BaseAdapter {
-
-    Context context;
-    List data;
-    private static LayoutInflater inflater = null;
-
-    public CustomListRowAdapter(Context context, List<String> data) {
-        this.context = context;
-        this.data = data;
-        inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-    }
-
-    @Override
-    public int getCount() {
-        return 0;
-    }
-
-    @Override
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        View vi = view;
-        if (vi == null) inflater.inflate(R.layout.custom_row, null);
-        TextView postText = vi.findViewById(R.id.customRowTextView);
-        postText.setText(data.toString());
-        return vi;
-
-    }
-}
-
-*/
 public class FeedActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
@@ -88,7 +46,6 @@ public class FeedActivity extends AppCompatActivity {
 
         final ArrayList<String> list = new ArrayList<>();
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, list);
-        //final CustomListRowAdapter<String> customListRowAdapter = new CustomListRowAdapter<String>(this, list);
 
 
         feedListView.setAdapter(arrayAdapter);
