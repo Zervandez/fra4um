@@ -13,10 +13,14 @@ import android.widget.Toast;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;       // apparently, we're old fashioned
-import com.google.android.material.snackbar.Snackbar;                               // we wear it with pride, baby
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class FeedActivity extends AppCompatActivity {
@@ -48,11 +52,23 @@ public class FeedActivity extends AppCompatActivity {
         adapter = new FirebaseListAdapter(options) {
             @Override
             protected void populateView(@NonNull View v, @NonNull Object model, int position) {
-                TextView txtPost = v.findViewById(R.id.customRowTextView);
+                final TextView txtPost = v.findViewById(R.id.customRowTextView);
 
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Feed");
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                            txtPost.setText(dataSnapshot.getValue().toString());
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
 
-                Post post = (Post) model;
-                txtPost.setText(post.getPostText().toString());
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
         };
 
@@ -113,6 +129,7 @@ public class FeedActivity extends AppCompatActivity {
         super.onStop();
         adapter.stopListening();
     }
+
 }
 
 
