@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.icu.util.LocaleData;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseListOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;       // apparently, we're old fashioned
 import com.google.android.material.snackbar.Snackbar;                               // we wear it with pride, baby
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,6 +25,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -32,6 +36,7 @@ public class FeedActivity extends AppCompatActivity {
     private FirebaseAuth auth;
 
     private ListView feedListView;
+    FirebaseListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +49,27 @@ public class FeedActivity extends AppCompatActivity {
         feedListView = findViewById(R.id.feelListView);
         FloatingActionButton fab = findViewById(R.id.fab);
 
-        final ArrayList<String> list = new ArrayList<>();
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, list);
+        Query query = FirebaseDatabase.getInstance().getReference().child("Feed");
+
+        FirebaseListOptions<Post> options = new FirebaseListOptions.Builder<Post>()
+                .setLayout(R.layout.custom_row)
+                .setQuery(query, Post.class)
+                .build();
+
+        adapter = new FirebaseListAdapter(options) {
+            @Override
+            protected void populateView(@NonNull View v, @NonNull Object model, int position) {
+                TextView txtPost = v.findViewById(R.id.customRowTextView);
 
 
-        feedListView.setAdapter(arrayAdapter);
+                Post post = (Post) model;
+                txtPost.setText(post.getPostText().toString());
+            }
+        };
+
+        feedListView.setAdapter(adapter);
+
+        onStart();
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +92,7 @@ public class FeedActivity extends AppCompatActivity {
 
         });
 
+        /*
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Feed");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -88,6 +110,7 @@ public class FeedActivity extends AppCompatActivity {
             }
         });
 
+*/
 
     }
     }
