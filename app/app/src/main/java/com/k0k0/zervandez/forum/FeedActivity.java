@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,49 +29,31 @@ public class FeedActivity extends AppCompatActivity {
     private FirebaseAuth auth;
 
     private ListView feedListView;
-    FirebaseListAdapter adapter;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
 
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Feed");
         auth = FirebaseAuth.getInstance();
 
 
         feedListView = findViewById(R.id.feelListView);
         FloatingActionButton fab = findViewById(R.id.fab);
 
-        Query query = FirebaseDatabase.getInstance().getReference().child("Feed");
 
-        FirebaseListOptions<Post> options = new FirebaseListOptions.Builder<Post>()
-                .setLayout(R.layout.custom_row)
-                .setLifecycleOwner(FeedActivity.this)
-                .setQuery(query, Post.class)
-                .build();
-
-        adapter = new FirebaseListAdapter(options) {
+        ListAdapter adapter = new FirebaseListAdapter<String>(this, R.layout.custom_row, databaseReference) {
             @Override
-            protected void populateView(@NonNull View v, @NonNull Object model, int position) {
-                final TextView txtPost = v.findViewById(R.id.customRowTextView);
-
-                DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Feed");
-                reference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                            txtPost.setText(dataSnapshot.getValue().toString());
-                        }
-                        adapter.notifyDataSetChanged();
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+            protected void populateView(@NonNull View v, @NonNull String model, int position) {
+                TextView textView = v.findViewById(R.id.customRowTextView);
+                textView.setText(model);
             }
         };
+
+
 
         feedListView.setAdapter(adapter);
 
@@ -117,7 +100,7 @@ public class FeedActivity extends AppCompatActivity {
 */
 
     }
-
+/*
     @Override
     protected void onStart() {
         super.onStart();
@@ -129,7 +112,7 @@ public class FeedActivity extends AppCompatActivity {
         super.onStop();
         adapter.stopListening();
     }
-
+*/
 }
 
 
