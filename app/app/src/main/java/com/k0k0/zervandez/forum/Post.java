@@ -4,6 +4,10 @@ public class Post {
 
     private String postText;
 
+    public Post(String pT) {
+        this.postText = pT;
+    }
+
 
     public String getPostText() {
         return postText;

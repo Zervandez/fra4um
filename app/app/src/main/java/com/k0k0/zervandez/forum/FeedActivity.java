@@ -24,12 +24,13 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 
+
 public class FeedActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
 
     private ListView feedListView;
-    DatabaseReference databaseReference;
+    FirebaseListAdapter<Post> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,6 @@ public class FeedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_feed);
 
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Feed");
         auth = FirebaseAuth.getInstance();
 
 
@@ -45,13 +45,25 @@ public class FeedActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
 
 
-        ListAdapter adapter = new FirebaseListAdapter<String>(this, R.layout.custom_row, databaseReference) {
+        Query query = FirebaseDatabase.getInstance().getReference().child("Feed");
+        FirebaseListOptions<Post> options = new FirebaseListOptions.Builder<Post>()
+                .setLayout(R.layout.custom_row)
+                .setLifecycleOwner(FeedActivity.this)
+                .setQuery(query, Post.class)
+                .build();
+
+        adapter = new FirebaseListAdapter(options) {
             @Override
-            protected void populateView(@NonNull View v, @NonNull String model, int position) {
+            protected void populateView(View v, Object model, int position) {
                 TextView textView = v.findViewById(R.id.customRowTextView);
-                textView.setText(model);
+
+                //Post post = (Post) model;
+                Post post = new Post(textView.toString());
+                //textView.setText(post.getPostText());
             }
         };
+
+
 
 
 
@@ -100,7 +112,7 @@ public class FeedActivity extends AppCompatActivity {
 */
 
     }
-/*
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -112,7 +124,6 @@ public class FeedActivity extends AppCompatActivity {
         super.onStop();
         adapter.stopListening();
     }
-*/
 }
 
 
