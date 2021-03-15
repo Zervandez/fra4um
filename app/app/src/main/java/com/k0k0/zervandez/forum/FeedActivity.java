@@ -57,9 +57,9 @@ public class FeedActivity extends AppCompatActivity {
             protected void populateView(View v, Object model, int position) {
                 TextView textView = v.findViewById(R.id.customRowTextView);
 
-                //Post post = (Post) model;
-                Post post = new Post(textView.toString());
-                //textView.setText(post.getPostText());
+                Post post = (Post) model;
+                //Post post = new Post(textView.toString());
+                textView.setText(post.getPostText());
             }
         };
 
