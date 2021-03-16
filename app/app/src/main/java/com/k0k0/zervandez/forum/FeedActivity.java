@@ -1,78 +1,41 @@
 package com.k0k0.zervandez.forum;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;       // apparently, we're old fashioned
-import com.google.android.material.snackbar.Snackbar;                               // we wear it with pride, baby
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseListOptions;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.Query;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
-
-class CustomListRowAdapter<String> extends BaseAdapter {
-
-    Context context;
-    List data;
-    private static LayoutInflater inflater = null;
-
-    public CustomListRowAdapter(Context context, List<String> data) {
-        this.context = context;
-        this.data = data;
-        inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-    }
-
-    @Override
-    public int getCount() {
-        return 0;
-    }
-
-    @Override
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        View vi = view;
-        if (vi == null) inflater.inflate(R.layout.custom_row, null);
-        TextView postText = vi.findViewById(R.id.customRowTextView);
-        postText.setText(data.toString());
-        return vi;
-
-    }
-}
 
 
 public class FeedActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
-    private FirebaseDatabase firebaseDatabase;
 
-    private ListView feedListView;
+    private RecyclerView recyclerView;
+    DatabaseReference ref;
+
+    private FirebaseRecyclerOptions<Post> options;
+    private FirebaseRecyclerAdapter<Post, MyViewHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,16 +44,37 @@ public class FeedActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-
-        feedListView = findViewById(R.id.feelListView);
+        recyclerView = findViewById(R.id.recycleView);
         FloatingActionButton fab = findViewById(R.id.fab);
 
-        final ArrayList<String> list = new ArrayList<>();
-        //final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.custom_row, list);
-        final CustomListRowAdapter<String> customListRowAdapter = new CustomListRowAdapter<String>(this, list);
+        ref = FirebaseDatabase.getInstance().getReference().child("posts");
+
+        recyclerView = findViewById(R.id.recycleView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        options = new FirebaseRecyclerOptions.Builder<Post>().setQuery(ref, Post.class).build();
+        adapter = new FirebaseRecyclerAdapter<Post, MyViewHolder>(options) {
+            @Override
+            public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.single_view, parent, false);
+
+                return new MyViewHolder(view);
+            }
 
 
-        feedListView.setAdapter(customListRowAdapter);
+            @Override
+            protected void onBindViewHolder(MyViewHolder holder, final int position, @NonNull Post post) {
+                holder.content.setText(""+post.getPostText());
+
+            }
+
+        };
+        adapter.startListening();
+        recyclerView.setAdapter(adapter);
+
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,24 +97,8 @@ public class FeedActivity extends AppCompatActivity {
 
         });
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Feed");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                list.clear();
-                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    list.add(dataSnapshot.getValue().toString());
-                }
-                customListRowAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-
-    }
     }
 
+
+
+}
