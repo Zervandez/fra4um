@@ -4,13 +4,14 @@ public class Post {
 
     private String postText;
 
+    public Post() {};
+
     public Post(String pT) {
         this.postText = pT;
     }
 
-
     public String getPostText() {
-        return postText;
+        return this.postText;
     }
 
     public void setPostText(String postText) {

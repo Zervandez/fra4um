@@ -1,27 +1,29 @@
 package com.k0k0.zervandez.forum;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ListAdapter;
+import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;       // apparently, we're old fashioned
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 
 
@@ -29,45 +31,49 @@ public class FeedActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
 
-    private ListView feedListView;
-    FirebaseListAdapter<Post> adapter;
+    private RecyclerView recyclerView;
+    DatabaseReference ref;
+
+    private FirebaseRecyclerOptions<Post> options;
+    private FirebaseRecyclerAdapter<Post, MyViewHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
 
-
         auth = FirebaseAuth.getInstance();
 
-
-        feedListView = findViewById(R.id.feelListView);
+        recyclerView = findViewById(R.id.recycleView);
         FloatingActionButton fab = findViewById(R.id.fab);
 
+        ref = FirebaseDatabase.getInstance().getReference().child("posts");
 
-        Query query = FirebaseDatabase.getInstance().getReference().child("Feed");
-        FirebaseListOptions<Post> options = new FirebaseListOptions.Builder<Post>()
-                .setLayout(R.layout.custom_row)
-                .setLifecycleOwner(FeedActivity.this)
-                .setQuery(query, Post.class)
-                .build();
+        recyclerView = findViewById(R.id.recycleView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new FirebaseListAdapter(options) {
+        options = new FirebaseRecyclerOptions.Builder<Post>().setQuery(ref, Post.class).build();
+        adapter = new FirebaseRecyclerAdapter<Post, MyViewHolder>(options) {
             @Override
-            protected void populateView(View v, Object model, int position) {
-                TextView textView = v.findViewById(R.id.customRowTextView);
+            public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.single_view, parent, false);
 
-                //Post post = (Post) model;
-                Post post = new Post(textView.toString());
-                //textView.setText(post.getPostText());
+                return new MyViewHolder(view);
             }
+
+
+            @Override
+            protected void onBindViewHolder(MyViewHolder holder, final int position, @NonNull Post post) {
+                holder.content.setText(""+post.getPostText());
+
+            }
+
         };
+        adapter.startListening();
+        recyclerView.setAdapter(adapter);
 
-
-
-
-
-        feedListView.setAdapter(adapter);
 
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -91,40 +97,8 @@ public class FeedActivity extends AppCompatActivity {
 
         });
 
-        /*
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Feed");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                list.clear();
-                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    list.add(dataSnapshot.getValue().toString());
-                }
-                arrayAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-*/
-
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        adapter.startListening();
-    }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        adapter.stopListening();
-    }
+
 }
-
-
-
