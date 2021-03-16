@@ -29,6 +29,7 @@
     <Button
         android:id="@+id/start_registerBtn"
         style="@android:style/Widget.Material.Light.Button.Borderless"
+
         android:layout_width="91dp"
         android:layout_height="43dp"
         android:layout_alignParentTop="true"
