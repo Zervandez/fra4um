@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b5657950-83de-45c5-84d4-a9e4f9299509" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Post.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Profile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-anydpi/ic_add.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-anydpi/ic_back.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-anydpi/ic_feed.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-anydpi/ic_menu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-anydpi/ic_post.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-anydpi/ic_profile.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-hdpi/ic_add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-hdpi/ic_back.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-hdpi/ic_feed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-hdpi/ic_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-hdpi/ic_post.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-hdpi/ic_profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-mdpi/ic_add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-mdpi/ic_back.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-mdpi/ic_feed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-mdpi/ic_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-mdpi/ic_post.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-mdpi/ic_profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-xhdpi/ic_add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-xhdpi/ic_back.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-xhdpi/ic_feed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-xhdpi/ic_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-xhdpi/ic_post.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-xhdpi/ic_profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-xxhdpi/ic_add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-xxhdpi/ic_back.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-xxhdpi/ic_feed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-xxhdpi/ic_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-xxhdpi/ic_post.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable-xxhdpi/ic_profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable/ic_baseline_play_arrow_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/drawable/selector.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/layout/fragment_post.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/layout/fragment_profile.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/layout/row.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../res/menu/bottom_nav_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../../.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../../.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../../build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../../build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FeedActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/FeedActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/PostActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../res/drawable/instagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../res/drawable/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../res/drawable/logo_skype.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../res/drawable/twitter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../res/layout/activity_feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../res/layout/activity_feed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../res/layout/activity_post.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../res/layout/activity_post.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../res/layout/activity_register.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../res/layout/activity_start.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../res/layout/activity_start.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../res/values/styles.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../../../../.." />
+  </component>
+  <component name="ProjectId" id="1peiYOAjcusp3bvKzD2Ew8pfpPz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../.." />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b5657950-83de-45c5-84d4-a9e4f9299509" name="Default Changelist" comment="" />
+      <created>1615550003189</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1615550003189</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="687" y="213" key="FileChooserDialogImpl" timestamp="1615809618795">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="687" y="213" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1615809618795" />
+  </component>
+</project>
