@@ -55,7 +55,9 @@ public class RegisterActivity extends AppCompatActivity {
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             /**
-             * Get the required information from the user (email, password).
+             * Verify the information given by the user (email, password) after they click on the Register-Button.
+             * <p> If the users haven't filled the required information, they will get a notification=======
+             * <p> Get the required information from the user (email, password).
              * <p> If the users haven't filled the email block, they will get a notification
              * <p> If the user haven't filled the password block, they will get a notification
              * <p> If the two required information have been given, they will be passed to the registerUser(email, pass)-Method to perform the authentication

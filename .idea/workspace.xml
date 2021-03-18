@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c767f361-997f-4a11-868c-eb9590971b2b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/app/src/main/java/com/k0k0/zervandez/forum/FeedActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/app/src/main/java/com/k0k0/zervandez/forum/FeedActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app/src/main/java/com/k0k0/zervandez/forum/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/app/src/main/java/com/k0k0/zervandez/forum/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app/src/main/java/com/k0k0/zervandez/forum/PostActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/app/src/main/java/com/k0k0/zervandez/forum/PostActivity.java" afterDir="false" />
-    </list>
+    <list default="true" id="c767f361-997f-4a11-868c-eb9590971b2b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
