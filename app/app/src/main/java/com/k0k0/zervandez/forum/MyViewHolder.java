@@ -7,10 +7,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
-    TextView content;
+    TextView content, dateofPost;
 
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
         content = itemView.findViewById(R.id.contentID);
+        dateofPost = itemView.findViewById(R.id.datePost);
     }
 }
