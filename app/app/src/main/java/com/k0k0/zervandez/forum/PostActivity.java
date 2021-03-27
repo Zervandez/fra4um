@@ -1,21 +1,30 @@
 package com.k0k0.zervandez.forum;
 
+import android.os.Bundle;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.view.Menu;
+import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.Button;
+import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
+import java.text.DateFormat;
+import java.util.Calendar;
 
 /**
  * Allows the user to write a post and then post it on the system
@@ -25,10 +34,15 @@ import com.google.firebase.database.ValueEventListener;
  */
 
 public class PostActivity extends AppCompatActivity {
-
-    private EditText postEtx;
-    private Button postBtn;
+    private EditText title, text;
+    private String postTitle, postText;
+    private ImageButton button;
     DatabaseReference firebaseDatabase;
+
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,23 +50,69 @@ public class PostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_post);
 
         firebaseDatabase = FirebaseDatabase.getInstance().getReference();
+        title = findViewById(R.id.post_title);
+        text = findViewById((R.id.post_text));
 
-        postEtx = findViewById(R.id.postTextMultiLine);
-        postBtn = findViewById(R.id.postBtn);
+        Calendar calendar = Calendar.getInstance();
+        String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
 
-        postBtn.setOnClickListener(new View.OnClickListener() {
+        TextView textViewDate = findViewById(R.id.dateView);
+        textViewDate.setText(currentDate);
+
+        /*------------------Hooks------------------*/
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        toolbar = findViewById(R.id.toolbar);
+
+        /*------------------Toolbar------------------*/
+        setSupportActionBar(toolbar);
+
+        navigationView.bringToFront();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        /*------------------Hide the profile item------------------*/
+        Menu menu = navigationView.getMenu();
+        menu.findItem(R.id.nav_post).setVisible(false);
+
+        /*------------------Navigation View Item Selected----------*/
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                String txt = postEtx.getText().toString();
-                Post newPost = new Post(txt);
-                if (TextUtils.isEmpty(postEtx.toString())){
-                    Toast.makeText(getApplicationContext(), "EMPTY NO GOOD", Toast.LENGTH_LONG).show();
-                } else {
-                    firebaseDatabase.child("posts").push().setValue(newPost);
-                    startActivity(new Intent(PostActivity.this, FeedActivity.class));
-                    finish();
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.nav_feed:
+                        startActivity(new Intent(PostActivity.this, FeedActivity.class));
+                        break;
+                    case R.id.nav_profile:
+                        startActivity(new Intent(PostActivity.this, Profile.class));
+                        break;
+                    case R.id.nav_logout:
+                        startActivity(new Intent(PostActivity.this, StartActivity.class));
+                        break;
                 }
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
             }
         });
+
+        button = findViewById(R.id.postButton);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                postTitle = title.getText().toString();
+                postText = text.getText().toString();
+                Post newPost = new Post(postText);
+                firebaseDatabase.child("posts").push().setValue(newPost);
+                Intent intent = new Intent(PostActivity.this, FeedActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+
     }
+
 }
