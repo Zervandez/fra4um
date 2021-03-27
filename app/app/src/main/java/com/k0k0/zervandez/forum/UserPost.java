@@ -55,8 +55,6 @@ public class UserPost extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(MyViewHolder holder, final int position, @NonNull Post post) {
                 holder.content.setText("" + post.getPostText());
-                holder.dateofPost.setText("" + post.getDate());
-
             }
 
         };

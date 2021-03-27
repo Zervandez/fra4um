@@ -113,6 +113,7 @@ public class Profile extends AppCompatActivity {
                     birthday.setText(currentUser.getBirthday());
                     phoneNumber.setText(currentUser.getPhoneNumber());
                     email.setText(currentUser.getEmail());
+                    password.setText(currentUser.getPassword());
                 }
             }
 

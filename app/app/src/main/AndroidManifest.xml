@@ -13,7 +13,6 @@
         <activity android:name=".Profile" />
         <activity android:name=".PostActivity" />
         <activity android:name=".FeedActivity" />
-        <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".StartActivity">
             <intent-filter>

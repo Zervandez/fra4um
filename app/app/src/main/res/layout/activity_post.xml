@@ -17,6 +17,7 @@
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu" />
 
+
     <RelativeLayout
         android:id="@+id/background"
         android:layout_width="match_parent"
@@ -39,7 +40,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="150dp"
             android:layout_marginEnd="10dp"
-            android:background="@drawable/rectenglebg"
+            android:background="@drawable/rectanglebg"
             android:hint=" Title"
             android:inputType="text"
             android:textAlignment="viewStart"
@@ -61,7 +62,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="29dp"
             android:layout_marginEnd="10dp"
-            android:background="@drawable/rectenglebg"
+            android:background="@drawable/rectanglebg"
             android:ems="10"
             android:gravity="start|top"
             android:hint=" Enter a text..."

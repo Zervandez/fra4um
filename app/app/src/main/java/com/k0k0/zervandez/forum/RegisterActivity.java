@@ -119,7 +119,8 @@ public class RegisterActivity extends AppCompatActivity {
                     newUser = FirebaseAuth.getInstance().getCurrentUser();
                     String userID = newUser.getUid();
                     String userEmail = newUser.getEmail();
-                    User user = new User(userID, userEmail,passStr);
+                    String userPassword = hashPass(passStr);
+                    User user = new User(userID, userEmail,userPassword);
                     ref = FirebaseDatabase.getInstance().getReference("Users");
                     ref.child(userID).setValue(user);
                     /*--------------------------------------------------------------------------*/
@@ -129,5 +130,14 @@ public class RegisterActivity extends AppCompatActivity {
                 else Toast.makeText(getApplicationContext(), "PLEASE TRY AGAIN!", Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    // Hash the password to * so that it can't be viewed on the database
+    private String hashPass(String password) {
+        String result = "";
+        for(int i = 0; i < password.length(); ++i) {
+            result += '*';
+        }
+        return result;
     }
 }
