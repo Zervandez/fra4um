@@ -15,6 +15,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Allows the user to create an account via their email address.
@@ -27,9 +33,12 @@ import com.google.firebase.auth.FirebaseAuth;
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText emailET, passET;
-    private Button registerBtn;
+    private Button registerBtn, quitBtn;
 
     private FirebaseAuth firebaseAuth;     //  we declare an instance of Firebase Auth
+    private FirebaseUser newUser;
+    private DatabaseReference ref;
+    private String emailStr, passStr;
 
     /**
      * Interact with the Register-interface.
@@ -50,6 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
         emailET = findViewById(R.id.reg_emailEditText);
         passET = findViewById(R.id.reg_editTextPassword);
         registerBtn = findViewById(R.id.register_button);
+        quitBtn = findViewById(R.id.quit_button);
 
         firebaseAuth = FirebaseAuth.getInstance();      // we initialise the instance
 
@@ -63,8 +73,8 @@ public class RegisterActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View view) {
-                String emailStr = emailET.getText().toString().trim();
-                String passStr = passET.getText().toString();
+                emailStr = emailET.getText().toString().trim();
+                passStr = passET.getText().toString();
                 if ( TextUtils.isEmpty(emailStr) && TextUtils.isEmpty(passStr) ) {
                     Toast.makeText(getApplicationContext(), "EMAIL AND PASSWORD ARE EMPTY", Toast.LENGTH_LONG).show();
                 } else if (TextUtils.isEmpty(emailStr)) {
@@ -74,6 +84,13 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     registerUser(emailStr, passStr);
                 }
+            }
+        });
+
+        quitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RegisterActivity.this, StartActivity.class));
             }
         });
     }
@@ -97,6 +114,15 @@ public class RegisterActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "SUCCESSFULLY CREATE AN ACCOUNT", Toast.LENGTH_LONG).show();
+
+                    /*---------------Put a new user to the Users in the Database----------------*/
+                    newUser = FirebaseAuth.getInstance().getCurrentUser();
+                    String userID = newUser.getUid();
+                    String userEmail = newUser.getEmail();
+                    User user = new User(userID, userEmail,passStr);
+                    ref = FirebaseDatabase.getInstance().getReference("Users");
+                    ref.child(userID).setValue(user);
+                    /*--------------------------------------------------------------------------*/
                     startActivity(new Intent(RegisterActivity.this, StartActivity.class));
                     finish();       // we type finish so the user can't come back by hitting 'back'
                 }
