@@ -4,28 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:baselineAligned="false"
     android:orientation="vertical"
-    tools:context=".FeedActivity">
+    tools:context=".UserPost">
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleView"
+        android:id="@+id/recycleView1"
         android:layout_width="match_parent"
-        android:layout_height="580dp" />
+        android:layout_height="535dp">
 
+    </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fab1"
         android:layout_width="wrap_content"
-        android:layout_height="68dp"
+        android:layout_height="76dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="end|bottom"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        app:backgroundTint="#3F51B5"
-        app:fabSize="normal" />
-
+        android:layout_marginEnd="16dp"
+        android:baselineAligned="false"
+        app:backgroundTint="#3F51B5" />
 
 
 </LinearLayout>

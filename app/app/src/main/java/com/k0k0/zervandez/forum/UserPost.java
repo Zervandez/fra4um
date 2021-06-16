@@ -1,32 +1,25 @@
 package com.k0k0.zervandez.forum;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
-
-public class FeedActivity extends AppCompatActivity {
-
+public class UserPost extends AppCompatActivity {
     private FirebaseAuth auth;
-
-    private int dateOfPost;
 
     private RecyclerView recyclerView;
     DatabaseReference ref;
@@ -37,16 +30,15 @@ public class FeedActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed);
-
+        setContentView(R.layout.activity_user_post);
         auth = FirebaseAuth.getInstance();
 
-        recyclerView = findViewById(R.id.recycleView);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        recyclerView = findViewById(R.id.recycleView1);
+        FloatingActionButton fab = findViewById(R.id.fab1);
 
-        ref = FirebaseDatabase.getInstance().getReference().child("posts");
+        ref = FirebaseDatabase.getInstance().getReference().child("users").child("huong").child("posts");
 
-        recyclerView = findViewById(R.id.recycleView);
+        recyclerView = findViewById(R.id.recycleView1);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -60,41 +52,23 @@ public class FeedActivity extends AppCompatActivity {
                 return new MyViewHolder(view);
             }
 
-
             @Override
             protected void onBindViewHolder(MyViewHolder holder, final int position, @NonNull Post post) {
-                holder.content.setText(""+post.getPostText());
-                holder.dateofPost.setText(""+post.getDate());
-
+                holder.content.setText("" + post.getPostText());
             }
 
         };
         adapter.startListening();
         recyclerView.setAdapter(adapter);
 
-
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FeedActivity.this, PostActivity.class));
+                startActivity(new Intent(UserPost.this, Profile.class));
             }
         });
 
-        fab.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                auth.signOut();
-                Toast.makeText(getApplicationContext(), "LOGGED OUT", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(FeedActivity.this, StartActivity.class));
-                finish();
-                return false;
-            }
 
-        });
 
     }
-
-
-
 }

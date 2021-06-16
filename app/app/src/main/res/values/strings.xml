@@ -15,4 +15,7 @@
     <string name="start_logo">logo</string>
     <string name="textLogo">FRA4RUM</string>
     <string name="noti1">Havent have an account yet?</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
 </resources>

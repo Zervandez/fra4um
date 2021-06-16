@@ -1,123 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/background"
+ 
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
-    tools:context=".Post">
+    android:fitsSystemWindows="true"
+    tools:context=".PostActivity"
+    tools:openDrawer="start">
 
-    <EditText
-        android:id="@+id/post_title"
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/main_menu" />
+
+
+    <RelativeLayout
+        android:id="@+id/background"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/rectenglebg"
-        android:hint=" Title"
-        android:inputType="text"
-        android:textAlignment="viewStart"
-        android:textColor="@android:color/black"
-        android:textColorHighlight="@color/colorPrimary"
-        android:textColorHint="@android:color/black"
-        android:textColorLink="@android:color/white"
-        android:textSize="20sp"
-        android:textStyle="bold|italic" />
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient"
+        tools:context=".Post">
 
-    <EditText
-        android:id="@+id/post_text"
-        android:layout_width="match_parent"
-        android:layout_height="310dp"
-        android:layout_below="@+id/post_title"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/rectenglebg"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint=" Enter a text..."
-        android:inputType="textMultiLine"
-        android:textAlignment="textStart"
-        android:textColor="@android:color/black"
-        android:textColorHighlight="@color/colorPrimary"
-        android:textColorHint="@android:color/black"
-        android:textColorLink="@android:color/white"
-        android:textSize="18sp" />
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
 
-    <ImageButton
-        android:id="@+id/postButton"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="67dp"
-        android:layout_height="53dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="350dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="0dp"
-        android:src="@drawable/ic_baseline_play_arrow_24"
-        android:tint="@android:color/white"
-        android:translationZ="90dp" />
+        <EditText
+            android:id="@+id/post_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/rectanglebg"
+            android:hint=" Title"
+            android:inputType="text"
+            android:textAlignment="viewStart"
+            android:textColor="@android:color/black"
+            android:textColorHighlight="@color/colorPrimary"
+            android:textColorHint="@android:color/black"
+            android:textColorLink="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
 
-    <TextView
-        android:id="@+id/dateView"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="6dp"
-        android:text="Date"
-        android:textColor="@android:color/white"
-        android:textSize="15sp"
-        android:textStyle="italic" />
+        <EditText
+            android:id="@+id/post_text"
+            android:layout_width="match_parent"
+            android:layout_height="310dp"
+            android:layout_below="@+id/post_title"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="29dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/rectanglebg"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint=" Enter a text..."
+            android:inputType="textMultiLine"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/black"
+            android:textColorHighlight="@color/colorPrimary"
+            android:textColorHint="@android:color/black"
+            android:textColorLink="@android:color/white"
+            android:textSize="18sp" />
 
-    <View
-        android:layout_width="400dp"
-        android:layout_height="1dp"
-        android:layout_above="@+id/post_title"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="-80dp"
-        android:background="@android:color/darker_gray" />
+        <ImageButton
+            android:id="@+id/postButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="67dp"
+            android:layout_height="53dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="350dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="0dp"
+            android:src="@drawable/ic_baseline_play_arrow_24"
+            android:tint="@android:color/white"
+            android:translationZ="90dp" />
 
-    <View
-        android:layout_width="400dp"
-        android:layout_height="1dp"
-        android:layout_below="@+id/post_text"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="20dp"
-        android:background="@android:color/darker_gray" />
+        <TextView
+            android:id="@+id/dateView"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="300dp"
+            android:layout_marginTop="128dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="6dp"
+            android:text="Date"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:textStyle="italic" />
 
-    <View
-        android:layout_width="400dp"
-        android:layout_height="10dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:background="@android:color/darker_gray" />
+        <View
+            android:layout_width="400dp"
+            android:layout_height="1dp"
+            android:layout_above="@+id/post_title"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="-80dp"
+            android:background="@android:color/darker_gray" />
 
-</RelativeLayout>
+        <View
+            android:layout_width="400dp"
+            android:layout_height="1dp"
+            android:layout_below="@+id/post_text"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/darker_gray" />
+
+        <View
+            android:layout_width="400dp"
+            android:layout_height="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@android:color/darker_gray" />
+
+    </RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
