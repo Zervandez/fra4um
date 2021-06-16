@@ -9,8 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.BreakIterator;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
+
     TextView dateofPost;
     TextView content;
+
 
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);

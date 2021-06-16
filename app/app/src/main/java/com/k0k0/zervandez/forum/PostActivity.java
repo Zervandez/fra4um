@@ -1,5 +1,6 @@
 package com.k0k0.zervandez.forum;
 
+
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -20,8 +21,14 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.DateFormat;
+import java.util.Calendar;
+
+import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -100,6 +107,7 @@ public class PostActivity extends AppCompatActivity {
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
                 postTitle = title.getText().toString();
                 postText = text.getText().toString();

@@ -28,6 +28,7 @@
             android:id="@+id/imageView3"
             android:layout_width="69dp"
             android:layout_height="50dp"
+
             app:layout_constraintBottom_toTopOf="@+id/contentID"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -38,6 +39,7 @@
             android:layout_width="410dp"
             android:layout_height="wrap_content"
             android:background="@drawable/rectanglebg"
+
             android:text="Content: "
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"

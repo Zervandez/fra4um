@@ -54,6 +54,14 @@ public class StartActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Verify the information given by the user (email, password) after they click on the Login-button.
+             * <p> If the users haven't filled the required information, they will get a notification
+             * <p> If the users haven't filled the email block, they will get a notification
+             * <p> If the user haven't filled the password block, they will get a notification
+             * <p> If the two required information have been given, they will be passed to the loginUser(email, pass)-Method to perform the authentication
+             * @param view the start view
+             */
             @Override
             public void onClick(View view) {
                 String emailStr = emailET.getText().toString().trim();
@@ -72,6 +80,10 @@ public class StartActivity extends AppCompatActivity {
         });
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Direct the user to the RegisterView after they click on the sign-up button
+             * @param view the start view
+             */
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(StartActivity.this, RegisterActivity.class));

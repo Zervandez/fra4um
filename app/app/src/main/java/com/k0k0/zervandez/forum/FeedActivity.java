@@ -21,9 +21,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
+
 public class FeedActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
+
+    private int dateOfPost;
 
     private RecyclerView recyclerView;
     DatabaseReference ref;
@@ -61,6 +64,7 @@ public class FeedActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(MyViewHolder holder, final int position, @NonNull Post post) {
                 holder.content.setText(""+post.getPostText());
+                holder.dateofPost.setText(""+post.getDate());
 
             }
 
@@ -73,8 +77,6 @@ public class FeedActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Speak Socrates!", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
                 startActivity(new Intent(FeedActivity.this, PostActivity.class));
             }
         });
