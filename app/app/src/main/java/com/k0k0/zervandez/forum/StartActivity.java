@@ -16,11 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-/**
- * Allows the user to login to the system or create a new account if they don't have one.
- * @author Thien Huong Le
- * @since 10.01.2021
- */
+
 
 public class StartActivity extends AppCompatActivity {
 
