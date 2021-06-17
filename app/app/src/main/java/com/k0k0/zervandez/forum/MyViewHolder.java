@@ -10,13 +10,13 @@ import java.text.BreakIterator;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
 
-    TextView dateofPost;
+    TextView dateOfPost;
     TextView content;
 
 
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
         content = itemView.findViewById(R.id.contentID);
-        dateofPost = itemView.findViewById(R.id.datePost);
+        dateOfPost = itemView.findViewById(R.id.datePost);
     }
 }
