@@ -26,8 +26,6 @@ public class FeedActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
 
-    private int dateOfPost;
-
     private RecyclerView recyclerView;
     DatabaseReference ref;
 
@@ -46,7 +44,7 @@ public class FeedActivity extends AppCompatActivity {
 
         ref = FirebaseDatabase.getInstance().getReference().child("posts");
 
-        recyclerView = findViewById(R.id.recycleView);
+        //recyclerView = findViewById(R.id.recycleView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -64,7 +62,7 @@ public class FeedActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(MyViewHolder holder, final int position, @NonNull Post post) {
                 holder.content.setText(""+post.getPostText());
-                holder.dateofPost.setText(""+post.getDate());
+                holder.dateOfPost.setText(""+post.getDate());
 
             }
 
